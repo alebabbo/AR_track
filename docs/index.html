@@ -1,23 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AR_track</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;max-width:900px;margin:3rem auto;padding:1rem}
-    header{border-bottom:1px solid #eee;padding-bottom:1rem;margin-bottom:1rem}
-  </style>
-</head>
-<body>
-  <header>
-    <h1>AR_track</h1>
-    <p>Project page for the AR_track repository.</p>
-  </header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AR Sovrapposizione Oggetto</title>
 
-  <main>
-    <p>This is a placeholder site. Replace this with your static site, documentation, or a generated build output (e.g., from a static site generator).</p>
-    <p>Project page URL: <a href="https://alebabbo.github.io/AR_track">https://alebabbo.github.io/AR_track</a></p>
-  </main>
-</body>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene 
+      mindar-image="imageTargetSrc: target.mind; filterMinCF:0.0001; filterBeta: 10000;" 
+      vr-mode-ui="enabled: false" 
+      device-orientation-permission-ui="enabled: false"
+      renderer="colorManagement: true, physicallyCorrectLights: true">
+
+      <a-camera mindar-image-camera position="0 0 0"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+          <a-gltf-model 
+            src="modello.glb" 
+            scale="0.1 0.1 0.1" 
+            rotation="90 0 0"
+            position="0 0 0.0" 
+            gesture-handler>
+          </a-gltf-model>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
